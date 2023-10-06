@@ -1,0 +1,17 @@
+{
+  "name": "johnshopkins/design-system",
+  "version": "0.0.0",
+  "description": "Design system for Johns Hopkins University.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jen Wachter",
+      "email": "jwachter@jhu.edu"
+    },
+    {
+      "name": "Eric Conrad",
+      "email": "eric.conrad@jhu.edu"
+    }
+  ],
+  "require": {}
+}

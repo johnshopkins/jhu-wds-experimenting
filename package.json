@@ -1,0 +1,42 @@
+{
+  "name": "@johnshopkins/design-system",
+  "version": "0.0.0",
+  "description": "Design system for Johns Hopkins University.",
+  "license": "MIT",
+  "type": "module",
+  "files": ["dist", "src"],
+  "main": "./dist/main.umd.cjs",
+  "module": "./dist/main.js",
+  "exports": {
+    ".": {
+      "import": "./dist/main.js",
+      "require": "./dist/main.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnshopkins/design-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/johnshopkins/design-system/issues"
+  },
+  "contributors": [
+    {
+      "name": "Eric Conrad",
+      "email": "eric.conrad@jhu.edu"
+    },
+    {
+      "name": "Jen Wachter",
+      "email": "jwachter@jhu.edu"
+    }
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite build && vite build -c vite.preview.js && vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.69.2",
+    "vite": "^4.4.5"
+  }
+}

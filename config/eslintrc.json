@@ -1,0 +1,15 @@
+{
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "no-shadow": 0,
+    "padded-blocks": 0,
+    "space-in-parens": 0
+  }
+}
