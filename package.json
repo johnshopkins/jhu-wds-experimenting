@@ -32,8 +32,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite build && vite build -c vite.preview.js && vite preview"
+    "build": "vite build --emptyOutDir",
+    "preview": "vite build -c vite.preview.js --emptyOutDir && vite preview -c vite.preview.js"
   },
   "devDependencies": {
     "sass": "^1.69.2",
