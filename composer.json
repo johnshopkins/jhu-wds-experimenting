@@ -1,16 +1,16 @@
 {
-  "name": "johnshopkins/design-system",
+  "name": "johnshopkins/jhu-wds",
   "version": "0.0.0",
-  "description": "Design system for Johns Hopkins University.",
+  "description": "Johns Hopkins University Web Design System",
   "license": "MIT",
   "authors": [
     {
-      "name": "Jen Wachter",
-      "email": "jwachter@jhu.edu"
-    },
-    {
       "name": "Eric Conrad",
       "email": "eric.conrad@jhu.edu"
+    },
+    {
+      "name": "Jen Wachter",
+      "email": "jwachter@jhu.edu"
     }
   ],
   "require": {}

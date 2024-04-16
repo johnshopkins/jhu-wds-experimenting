@@ -1,7 +1,7 @@
 {
-  "name": "@johnshopkins/design-system",
+  "name": "@johnshopkins/jhu-wds",
   "version": "0.0.0",
-  "description": "Design system for Johns Hopkins University.",
+  "description": "Johns Hopkins University Web Design System",
   "license": "MIT",
   "type": "module",
   "files": ["dist", "src"],
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnshopkins/design-system.git"
+    "url": "git+https://github.com/johnshopkins/jhu-wds.git"
   },
   "bugs": {
-    "url": "https://github.com/johnshopkins/design-system/issues"
+    "url": "https://github.com/johnshopkins/jhu-wds/issues"
   },
   "contributors": [
     {
