@@ -1,4 +1,4 @@
-# JHU Design System
+# Johns Hopkins University Web Design System
 
 ## Commands
 
