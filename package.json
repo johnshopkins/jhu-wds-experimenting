@@ -39,7 +39,8 @@
     "preview": "vite build -c vite.preview.js --emptyOutDir && vite preview -c vite.preview.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "storybook-docs": "storybook dev --docs"
+    "storybook-docs": "storybook dev --docs",
+    "chromatic": "npx chromatic --project-token=chpt_2bee4b953d054ff"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.4.0",
@@ -52,6 +53,7 @@
     "@storybook/html-vite": "^8.1.3",
     "@storybook/test": "^8.1.3",
     "@whitespace/storybook-addon-html": "^6.1.1",
+    "chromatic": "^11.4.0",
     "prettier": "^3.2.5",
     "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.69.2",
