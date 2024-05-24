@@ -1,0 +1,29 @@
+import { ArgTypes, Canvas, Controls, Meta } from '@storybook/blocks';
+
+import * as ButtonStories from './Button.stories';
+
+{/* Defines where the doc will be placed in the sidebar */}
+<Meta of={ButtonStories} />
+
+# Button
+
+This is a custom documentation page. Heading has auto generated documentation.
+
+<Canvas of={ButtonStories.Default} sourceState="shown" />
+
+
+## Customization
+<Controls />
+
+<ArgTypes of={ButtonStories} />
+
+{/* ## Variations
+
+### Primary
+<Canvas of={ButtonStories.Primary} />
+
+### Large
+<Canvas of={ButtonStories.Large} />
+
+### Small
+<Canvas of={ButtonStories.Small} /> */}

@@ -2,10 +2,16 @@
 
 ## Commands
 
-Run the development server:
+Run storybook:
 
 ```bash
-$ npm run dev
+$ npm run storybook
+```
+
+Preview storybook docs:
+
+```bash
+$ npm run storybook-docs
 ```
 
 Build the library:
@@ -14,7 +20,7 @@ Build the library:
 $ npm run build
 ```
 
-Preview the built library:
+Preview the built library (src/index.html):
 
 ```bash
 $ npm run preview
