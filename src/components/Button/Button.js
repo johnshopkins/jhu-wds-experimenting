@@ -11,25 +11,23 @@ class Button {
 
 const create = ({ primary = false, size = 'medium', backgroundColor, label }) => {
 
-  // return `<div>${label}</div>`;
-
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.innerText = label;
+  const element = document.createElement('button');
+  element.type = 'button';
+  element.innerText = label;
 
   if (primary) {
-    btn.classList.add('primary');
+    element.classList.add('primary');
   }
 
-  btn.classList.add(`size-${size}`);
+  element.classList.add(`size-${size}`);
 
-  btn.style.backgroundColor = backgroundColor;
+  element.style.backgroundColor = backgroundColor;
 
-  new Button(btn);
+  // enable JS
+  new Button(element);
 
-
-  return btn;
+  return element;
 };
 
-export { create, Button };
+export { Button, create };
 

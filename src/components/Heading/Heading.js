@@ -1,25 +1,12 @@
 import './heading.scss';
 
-const create = ({ label }) => {
+const create = ({ level = 1, label }) => {
 
-  // return `<div>${label}</div>`;
+  const element = document.createElement(`h${level}`);
+  element.innerText = label;
 
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.innerText = label;
-
-  if (primary) {
-    btn.classList.add('primary');
-  }
-
-  btn.classList.add(`size-${size}`);
-
-  btn.style.backgroundColor = backgroundColor;
-
-  new Button(btn);
-
-
-  return btn;
+  return element;
+  
 };
 
 export { create };
