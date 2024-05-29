@@ -1,12 +1,13 @@
 name: "Chromatic"
 
 on:
-  push:
-    # branches:
-    #   - 'releases/**'
-    paths:
-      - '**.js'
-      - '**.scss'
+  push
+  # push:
+  #   branches:
+  #     - 'releases/**'
+  #   paths:
+  #     - '**.js'
+  #     - '**.scss'
 
 jobs:
   chromatic:
