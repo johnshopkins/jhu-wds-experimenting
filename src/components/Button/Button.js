@@ -3,7 +3,7 @@ import './button.scss';
 class Button {
   constructor(element) {
     this.element = element;
-    this.element.addEventListener('click', (e) => {
+    this.element.addEventListener('click', () => {
       console.log('testing');
     })
   }
