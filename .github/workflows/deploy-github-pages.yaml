@@ -1,7 +1,9 @@
+name: "Deploy GitHub Pages"
+
 on:
   push:
     branches:
-      - "storybook" # change to the branch you wish to deploy from
+      - "storybook"
 
 permissions:
   contents: read
