@@ -2,7 +2,7 @@
   "name": "@johnshopkins/jhu-wds",
   "version": "0.0.0",
   "description": "Johns Hopkins University Web Design System",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE.md",
   "files": [
     "dist",
     "src"
