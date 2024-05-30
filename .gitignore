@@ -1,6 +1,5 @@
 .idea
 node_modules
-preview
 storybook-static
 
 *storybook.log

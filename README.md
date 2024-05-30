@@ -19,9 +19,3 @@ Build the library:
 ```bash
 $ npm run build
 ```
-
-Preview the built library (src/index.html):
-
-```bash
-$ npm run preview
-```
