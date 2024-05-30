@@ -4,8 +4,13 @@
   "description": "Johns Hopkins University Web Design System",
   "license": "SEE LICENSE IN LICENSE.md",
   "files": [
+    ".storybook",
     "dist",
-    "src"
+    "src",
+    "tests",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "webpack.config.js"
   ],
   "main": "./dist/main.js",
   "repository": {
