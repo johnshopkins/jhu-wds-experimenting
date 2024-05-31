@@ -1,17 +1,73 @@
 @use '../../shared/scss/utils/main' as *;
 
 button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
   border: 0;
-  border-radius: 3em;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
+  font-size: 14px;
+  padding: 11px 20px;
 
   &.primary {
+    background-color: $primary;
     color: $white;
-    background-color: #1ea7fd;
+
+    &.style-outline {
+      background-color: $white;
+      border: 1px $primary solid;
+      color: $primary;
+    }
+  }
+
+  &.secondary {
+    background-color: $secondary;
+    color: $white;
+
+    &.style-outline {
+      background-color: $white;
+      border: 1px $secondary solid;
+      color: $black;
+    }
+  }
+
+  &.tertiary {
+    background-color: transparent;
+    color: $black;
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  &.success {
+    background-color: $success;
+    color: $white;
+
+    &.style-outline {
+      background-color: $white;
+      border: 1px $success solid;
+      color: $success;
+    }
+  }
+
+  &.warning {
+    background-color: $warning;
+    color: $black;
+
+    &.style-outline {
+      background-color: $white;
+      border: 1px $warning solid;
+      color: $warning;
+    }
+  }
+
+  &.danger {
+    background-color: $danger;
+    color: $white;
+
+    &.style-outline {
+      background-color: $white;
+      border: 1px $danger solid;
+      color: $danger;
+    }
   }
 
   &.size-small {
@@ -19,13 +75,8 @@ button {
     padding: 10px 16px;
   }
 
-  &.size-medium {
-    font-size: 14px;
-    padding: 11px 20px;
-  }
-
   &.size-large {
-    font-size: 16px;
-    padding: 12px 24px;
+    font-size: 18px;
+    padding: 20px 35px;
   }
 }

@@ -9,19 +9,27 @@ class Button {
   }
 };
 
-const create = ({ primary = false, size = 'medium', backgroundColor, label }) => {
+const createButton = ({ label = 'Button', size, style, backgroundColor, variant }) => {
 
   const element = document.createElement('button');
   element.type = 'button';
   element.innerText = label;
 
-  if (primary) {
-    element.classList.add('primary');
+  if (variant) {
+    element.classList.add(variant);
   }
 
-  element.classList.add(`size-${size}`);
+  if (style) {
+    element.classList.add(`style-${style}`);
+  }
 
-  element.style.backgroundColor = backgroundColor;
+  if (size) {
+    element.classList.add(`size-${size}`);
+  }
+
+  if (backgroundColor) {
+    element.style.backgroundColor = backgroundColor;
+  }
 
   // enable JS
   new Button(element);
@@ -29,5 +37,5 @@ const create = ({ primary = false, size = 'medium', backgroundColor, label }) =>
   return element;
 };
 
-export { Button, create };
+export { Button, createButton };
 

@@ -1,55 +1,95 @@
-// import { fn } from '@storybook/test';
-import { create } from './Button';
+import { createButton } from './Button';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
   title: 'Components/Button',
-  // tags: ['autodocs'],
-  render: create,
-  // render: ({ label, ...args }) => {
-  //   console.log('label', label);
-  //   console.log('args', args);
-  //   // You can either use a function to create DOM elements or use a plain html string!
-  //   // return `<div>${label}</div>`;
-  //   return create({ label, ...args });
-  // },
+  render: createButton,
   argTypes: {
-    backgroundColor: { control: 'color' },
-    label: { control: 'text' },
-    primary: { control: 'boolean' },
+    label: {
+      control: 'text'
+    },
     size: {
       control: { type: 'radio' },
       options: ['small', 'large'],
+      if: { arg: 'variant', neq: 'tertiary' },
+    },
+    style: {
+      control: { type: 'radio' },
+      options: ['fill', 'outline'],
+      if: { arg: 'variant', neq: 'tertiary' },
+    },
+    variant: {
+      control: { type: 'radio' },
+      options: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger'],
     },
   },
-  // // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  // args: { onClick: fn() },
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Default = {
+const getVariations = (args = {}) => {
+
+  // this breaks "show code"
+  // const element = document.createDocumentFragment()
+  const element = document.createElement('div');
+  element.classList.add('buttons-story');
+  
+  element.appendChild(createButton({
+    label: 'Primary button',
+    variant: 'primary',
+    ...args
+  }));
+
+  element.appendChild(createButton({
+    label: 'Secondary button',
+    variant: 'secondary',
+    ...args
+  }));
+
+  element.appendChild(createButton({
+    label: 'Success button',
+    variant: 'success',
+    ...args
+  }));
+
+  element.appendChild(createButton({
+    label: 'Danger button',
+    variant: 'danger',
+    ...args
+  }));
+
+  element.appendChild(createButton({
+    label: 'Warning button',
+    variant: 'warning',
+    ...args
+  }));
+
+  return element;
+};
+
+export const Base = {
   args: {
-    label: 'Button',
+    label: 'Base button',
   },
 };
 
-export const Primary = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
+export const Variations = {
+  render: getVariations
+};
+
+export const Outlined = {
+  render: () => getVariations({ style: 'outline' })
 };
 
 export const Large = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
+  render: () => getVariations({ size: 'large' })
+};
+
+export const LargeOutlined = {
+  render: () => getVariations({ size: 'large', style: 'outline' })
 };
 
 export const Small = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
+  render: () => getVariations({ size: 'small' })
+};
+
+export const SmallOutlined = {
+  render: () => getVariations({ size: 'small', style: 'outline' })
 };
