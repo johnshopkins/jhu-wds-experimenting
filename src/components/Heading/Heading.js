@@ -1,6 +1,6 @@
 import './heading.scss';
 
-const create = ({ level = 1, label }) => {
+const createHeading = ({ level = 1, label }) => {
 
   const element = document.createElement(`h${level}`);
   element.innerText = label;
@@ -9,5 +9,5 @@ const create = ({ level = 1, label }) => {
   
 };
 
-export { create };
+export { createHeading };
 

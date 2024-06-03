@@ -1,49 +1,54 @@
-import { create } from './Heading';
+import { createHeading } from './Heading';
 
 export default {
   title: 'Components/Heading',
-  tags: ['autodocs'],
-  render: create,
+  render: createHeading,
 };
 
-export const LevelOne = {
-  args: {
-    label: 'Heading 1',
+const getVariations = (args = {}) => {
+
+  const element = document.createElement('div');
+  element.classList.add('story-container');
+
+  element.appendChild(createHeading({
+    label: 'Level 1',
     level: 1,
-  },
-};
+    ...args
+  }));
 
-export const LevelTwo = {
-  args: {
+  element.appendChild(createHeading({
     label: 'Level 2',
     level: 2,
-  },
-};
+    ...args
+  }));
 
-export const LevelThree = {
-  args: {
+  element.appendChild(createHeading({
     label: 'Level 3',
     level: 3,
-  },
-};
+    ...args
+  }));
 
-export const LevelFour = {
-  args: {
+  element.appendChild(createHeading({
     label: 'Level 4',
     level: 4,
-  },
-};
+    ...args
+  }));
 
-export const LevelFive = {
-  args: {
+  element.appendChild(createHeading({
     label: 'Level 5',
     level: 5,
-  },
-};
+    ...args
+  }));
 
-export const LevelSix = {
-  args: {
+  element.appendChild(createHeading({
     label: 'Level 6',
     level: 6,
-  },
+    ...args
+  }));
+
+  return element;
+};
+
+export const Base = {
+  render: getVariations
 };

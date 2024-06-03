@@ -1,0 +1,12 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import * as HeadingStories from './Heading.stories';
+
+{/* Defines where the doc will be placed in the sidebar */}
+<Meta of={HeadingStories} />
+
+# Heading
+
+This is a custom documentation page.
+
+<Canvas of={HeadingStories.Base} />
