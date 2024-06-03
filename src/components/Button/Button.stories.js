@@ -25,38 +25,36 @@ export default {
 };
 
 const getVariations = (args = {}) => {
-
-  // this breaks "show code"
-  // const element = document.createDocumentFragment()
+  
   const element = document.createElement('div');
-  element.classList.add('buttons-story');
+  element.classList.add('story-container', 'flex');
   
   element.appendChild(createButton({
-    label: 'Primary button',
+    label: 'Primary',
     variant: 'primary',
     ...args
   }));
 
   element.appendChild(createButton({
-    label: 'Secondary button',
+    label: 'Secondary',
     variant: 'secondary',
     ...args
   }));
 
   element.appendChild(createButton({
-    label: 'Success button',
+    label: 'Success',
     variant: 'success',
     ...args
   }));
 
   element.appendChild(createButton({
-    label: 'Danger button',
+    label: 'Danger',
     variant: 'danger',
     ...args
   }));
 
   element.appendChild(createButton({
-    label: 'Warning button',
+    label: 'Warning',
     variant: 'warning',
     ...args
   }));
@@ -66,7 +64,7 @@ const getVariations = (args = {}) => {
 
 export const Base = {
   args: {
-    label: 'Base button',
+    label: 'Default',
   },
 };
 
