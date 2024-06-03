@@ -2,3 +2,14 @@
 @use '../../components/Button/button.scss';
 @use '../../components/Heading/heading.scss';
 @use '../../modules/BrandBar/brand-bar.scss';
+
+.story-container {
+  
+  &.flex {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+}
