@@ -1,18 +1,7 @@
 /** @type { import('@storybook/html').Preview } */
 
 import '../src/shared/scss/styles.scss';
-
-/**
- * Cannot use prettier3 (installed with storybook) because prettier3
- * is async and storybook expects a string response (not a promise).
- * It is not possible to make synchronous prettier work in the browser:
- * https://github.com/prettier/prettier-synchronized/issues/15
- * 
- * Install prettier 2 alongside prettier 3:
- * npm install prettier2@npm:prettier@2 --save-dev
- */
-import prettier from 'prettier2';
-import HTMLParser from 'prettier2/parser-html';
+import { html } from './format';
 
 const preview = {
   parameters: {
@@ -24,13 +13,8 @@ const preview = {
     },
     docs: {
       source: {
-        transform: (src) => prettier.format(src, {
-          parser: 'html',
-          plugins: [HTMLParser],
-          htmlWhitespaceSensitivity: 'ignore',
-          tabWidth: 2,
-          printWidth: 100
-        }),
+        excludeDecorators: true,
+        transform: html,
       }
     },
     options: {
