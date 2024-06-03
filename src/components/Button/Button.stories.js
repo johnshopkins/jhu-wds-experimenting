@@ -1,4 +1,5 @@
 import { createButton } from './Button';
+import wrap from '../../shared/js/lib/wrapper';
 
 export default {
   title: 'Components/Button',
@@ -25,41 +26,33 @@ export default {
 };
 
 const getVariations = (args = {}) => {
-  
-  const element = document.createElement('div');
-  element.classList.add('story-container', 'flex');
-  
-  element.appendChild(createButton({
-    label: 'Primary',
-    variant: 'primary',
-    ...args
-  }));
-
-  element.appendChild(createButton({
-    label: 'Secondary',
-    variant: 'secondary',
-    ...args
-  }));
-
-  element.appendChild(createButton({
-    label: 'Success',
-    variant: 'success',
-    ...args
-  }));
-
-  element.appendChild(createButton({
-    label: 'Danger',
-    variant: 'danger',
-    ...args
-  }));
-
-  element.appendChild(createButton({
-    label: 'Warning',
-    variant: 'warning',
-    ...args
-  }));
-
-  return element;
+  return wrap([
+    createButton({
+      label: 'Primary',
+      variant: 'primary',
+      ...args
+    }),
+    createButton({
+      label: 'Secondary',
+      variant: 'secondary',
+      ...args
+    }),
+    createButton({
+      label: 'Success',
+      variant: 'success',
+      ...args
+    }),
+    createButton({
+      label: 'Danger',
+      variant: 'danger',
+      ...args
+    }),
+    createButton({
+      label: 'Warning',
+      variant: 'warning',
+      ...args
+    })
+  ], ['flex']);
 };
 
 export const Base = {
