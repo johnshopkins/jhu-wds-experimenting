@@ -20,7 +20,7 @@ export default {
     },
     variant: {
       control: { type: 'radio' },
-      options: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger'],
+      options: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'disabled'],
     },
   },
 };
@@ -51,7 +51,12 @@ const getVariations = (args = {}) => {
       label: 'Warning',
       variant: 'warning',
       ...args
-    })
+    }),
+    createButton({
+      label: 'Disabled',
+      variant: 'disabled',
+      ...args
+    }),
   ], ['flex']);
 };
 
