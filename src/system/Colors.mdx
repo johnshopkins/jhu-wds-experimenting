@@ -1,72 +1,13 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import colors from './colors';
 
 <Meta title="System/Colors" />
 
 <ColorPalette>
-  <ColorItem 
-    title="Blue" 
-    colors={{
-      30: '#68ACE5',
-      40: '#4E97E0',
-      50: '#0077D8',
-      80: '#002D72',
-    }} 
-  />
-  <ColorItem
-    title="Orange"
-    colors={{
-      30: '#FF9E1B',
-      40: '#F56600',
-      50: '#CF4520',
-    }}
-  />
-  <ColorItem
-    title="Coral"
-    colors={{
-      30: '#E8927C',
-    }}
-  />
-  <ColorItem
-    title="Yellow"
-    colors={{
-      30: '#F1C400',
-    }}
-  />
-  <ColorItem
-    title="Red"
-    colors={{
-      70: '#A6192E',
-      80: '#6E212C',
-    }}
-  />
-  <ColorItem
-    title="Purple"
-    colors={{
-      40: '#9E8FB0',
-      50: '#A45C98',
-      80: '#51284F',
-    }}
-  />
-  <ColorItem
-    title="Green"
-    colors={{
-      30: '#86C8BC',
-      40: '#76A04C',
-      50: '#008767',
-      70: '#286140',
-    }}
-  />
-  <ColorItem
-    title="Brown"
-    colors={{
-      30: '#CCA356',
-      60: '#964F2E',
-      90: '#4F2C1D',
-    }}
-  />
-  <ColorItem
-    title="Grayscale"
-    subtitle="subtitle, if we want one"
-    colors={{ White: '#FFFFFF', Sable: '#31261D', 'Double Black': '#000000' }}
-  />
+  {Object.entries(colors).map(([name, values]) => (  
+    <ColorItem 
+      title={name} 
+      colors={values} 
+    />
+  ))}
 </ColorPalette>
