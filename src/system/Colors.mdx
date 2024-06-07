@@ -1,11 +1,35 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
-import colors from './colors';
+import palettes from './colors';
 
 <Meta title="System/Colors" />
 
+# Colors
+
+## Official Brand Colors
 <ColorPalette>
-  {Object.entries(colors).map(([name, values]) => (  
+  <ColorItem 
+    title={'Primary'} 
+    colors={palettes.primary} 
+  />
+  <ColorItem 
+    title={'Secondary'} 
+    colors={palettes.secondary} 
+  />
+  <ColorItem 
+    title={'Tertiary'} 
+    colors={palettes.tertiary} 
+  />
+  <ColorItem 
+    title={'Grayscale'} 
+    colors={palettes.grayscale} 
+  />
+</ColorPalette>
+
+## Expanded palettes
+<ColorPalette>
+  {Object.entries(palettes.expanded).map(([name, values]) => (  
     <ColorItem 
+      key={name}
       title={name} 
       colors={values} 
     />

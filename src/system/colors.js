@@ -1,124 +1,27 @@
+import { colors, palettes } from '@johnshopkins/brand-colors';
 
-module.exports = 
-{
-    "grayscale": {
-        "5": "#f3f3f3",
-        "10": "#e6e5e5",
-        "20": "#d9d8d7",
-        "30": "#bcbab9",
-        "40": "#969290",
-        "50": "#787470",
-        "60": "#655c54",
-        "70": "#54493f",
-        "80": "#3e3329",
-        "90": "#31261d"
-    },
-    "red": {
-        "5": "#fcf1ee",
-        "10": "#f9e0da",
-        "20": "#f5d0c7",
-        "30": "#e8927c",
-        "40": "#e47061",
-        "50": "#dd312d",
-        "60": "#b71d26",
-        "70": "#a6192e",
-        "80": "#6e212c",
-        "90": "#41131a"
-    },
-    "orange": {
-        "5": "#fff1df",
-        "10": "#ffe2bd",
-        "20": "#ffd093",
-        "30": "#ff9e1b",
-        "40": "#f56600",
-        "50": "#cf4520",
-        "60": "#a6381a",
-        "70": "#862d15",
-        "80": "#60200f",
-        "90": "#40150a"
-    },
-    "gold": {
-        "5": "#fff4c1",
-        "10": "#ffe675",
-        "20": "#ffd724",
-        "30": "#f1c400",
-        "40": "#c58611",
-        "50": "#ab6320",
-        "60": "#964f2e",
-        "70": "#733c23",
-        "80": "#512a19",
-        "90": "#351c10"
-    },
-    "warm green": {
-        "5": "#f0f5ea",
-        "10": "#deead3",
-        "20": "#ccdeba",
-        "30": "#a4c584",
-        "40": "#76a04c",
-        "50": "#49823b",
-        "60": "#2e6a35",
-        "70": "#286140",
-        "80": "#183b27",
-        "90": "#102619"
-    },
-    "cool green": {
-        "5": "#eaf5f3",
-        "10": "#d3ebe7",
-        "20": "#bae0d9",
-        "30": "#86c8bc",
-        "40": "#1ea589",
-        "50": "#008767",
-        "60": "#006a51",
-        "70": "#005441",
-        "80": "#003c2e",
-        "90": "#00281e"
-    },
-    "blue": {
-        "5": "#eaf4fb",
-        "10": "#d6e8f8",
-        "20": "#bddbf4",
-        "30": "#68ace5",
-        "40": "#4e97e0",
-        "50": "#0077d8",
-        "60": "#005cb7",
-        "70": "#00469c",
-        "80": "#002d72",
-        "90": "#002051"
-    },
-    "cool purple": {
-        "5": "#f4f2f6",
-        "10": "#e8e5ed",
-        "20": "#dbd6e2",
-        "30": "#c0b6cc",
-        "40": "#9e8fb0",
-        "50": "#806c98",
-        "60": "#67577b",
-        "70": "#514561",
-        "80": "#3a3146",
-        "90": "#26202e"
-    },
-    "warm purple": {
-        "5": "#f7f1f6",
-        "10": "#efe2ed",
-        "20": "#e6d2e3",
-        "30": "#d3b0cd",
-        "40": "#b981af",
-        "50": "#a45c98",
-        "60": "#85487e",
-        "70": "#6c3868",
-        "80": "#51284f",
-        "90": "#331932"
-    },
-    "neutral": {
-        "5": "#f8f2e7",
-        "10": "#f1e5cf",
-        "20": "#e8d6b4",
-        "30": "#cca356",
-        "40": "#c0883c",
-        "50": "#9e6a34",
-        "60": "#83532d",
-        "70": "#6c4026",
-        "80": "#4f2c1d",
-        "90": "#341d13"
-    }
+const compiledPalettes = {
+  primary: {},
+  secondary: {},
+  tertiary: {},
+  grayscale: {},
+  expanded: {},
 };
+
+// sort brand colors
+const brandColors = colors.get();
+brandColors.forEach(color => {
+  const name = color.name.replace(' ', '');
+  compiledPalettes[color.type][name] = `#${color.hex}`;
+});
+
+// compile expanded palettes
+for (const [key, value] of Object.entries(palettes)) {
+  const colors = {}
+  for (const [grade, color] of Object.entries(value)) {
+    colors[grade] = `#${color.hex}`;
+  }
+  compiledPalettes.expanded[key] = colors;
+}
+
+export default compiledPalettes;
