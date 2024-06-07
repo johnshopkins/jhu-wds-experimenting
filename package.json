@@ -39,7 +39,6 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "storybook-docs": "storybook dev --docs",
-    "chromatic": "npx chromatic --project-token=chpt_2bee4b953d054ff --only-changed",
     "prepare": "jest"
   },
   "devDependencies": {
