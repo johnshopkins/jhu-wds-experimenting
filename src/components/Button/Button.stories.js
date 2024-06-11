@@ -26,38 +26,8 @@ export default {
 };
 
 const getVariations = (args = {}) => {
-  return wrap([
-    createButton({
-      label: 'Primary',
-      variant: 'primary',
-      ...args
-    }),
-    createButton({
-      label: 'Secondary',
-      variant: 'secondary',
-      ...args
-    }),
-    createButton({
-      label: 'Success',
-      variant: 'success',
-      ...args
-    }),
-    createButton({
-      label: 'Danger',
-      variant: 'danger',
-      ...args
-    }),
-    createButton({
-      label: 'Warning',
-      variant: 'warning',
-      ...args
-    }),
-    createButton({
-      label: 'Disabled',
-      variant: 'disabled',
-      ...args
-    }),
-  ], ['flex']);
+  const variations = ['Primary', 'Secondary', 'Success', 'Danger', 'Warning', 'Disabled'];
+  return wrap(variations.map((v) => createButton({ label: v, variant: v.toLowerCase(), ...args })), ['flex']);
 };
 
 export const Base = {
