@@ -7,38 +7,7 @@ export default {
 };
 
 const getVariations = (args = {}) => {
-  return wrap([
-    createHeading({
-      label: 'Level 1',
-      level: 1,
-      ...args
-    }),
-    createHeading({
-      label: 'Level 2',
-      level: 2,
-      ...args
-    }),
-    createHeading({
-      label: 'Level 3',
-      level: 3,
-      ...args
-    }),
-    createHeading({
-      label: 'Level 4',
-      level: 4,
-      ...args
-    }),
-    createHeading({
-      label: 'Level 5',
-      level: 5,
-      ...args
-    }),
-    createHeading({
-      label: 'Level 6',
-      level: 6,
-      ...args
-    })
-  ]);
+  return wrap([1, 2, 3, 4, 5, 6].map((n) => createHeading({ label: `Level ${n}`, level: n, ...args })));
 };
 
 export const Base = {
