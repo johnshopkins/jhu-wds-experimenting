@@ -13,7 +13,7 @@ const createButton = ({ label = 'Button', size, style, variant } = {}) => {
 
   const element = document.createElement('button');
   element.type = 'button';
-  element.innerText = label;
+  element.textContent = label;
 
   if (variant) {
     element.classList.add(variant);
