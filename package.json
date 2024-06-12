@@ -39,7 +39,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "storybook-docs": "storybook dev --docs",
-    "prepare": "jest"
+    "prepare": "jest",
+    "create-colors-scss-util": "node ./scripts/create-colors-scss-util"
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",
