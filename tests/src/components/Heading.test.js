@@ -25,8 +25,6 @@ describe('Compiled library', () => {
       const heading = getByRole(document.body, 'heading', { level: 1 });
 
       expect(heading).toBeInTheDocument();
-      // expect(button).toHaveAttribute('type', 'button');
-      // expect(button).not.toHaveAttribute('class');
 
     });
 
@@ -46,30 +44,24 @@ describe('Compiled library', () => {
 
   });
 
-  // test('Can change heading label', () => {
+  test('Can change heading label', () => {
 
-  //   document.body.appendChild(createButton({ label: 'this is a custom label' }));
+    document.body.appendChild(createHeading({ label: 'this is a custom label' }));
 
-  //   const button = getByRole(document.body, 'button');
+    const heading = getByRole(document.body, 'heading');
 
-  //   expect(button).toBeInTheDocument();
-  //   expect(button).toHaveAttribute('type', 'button');
-  //   expect(button).toHaveTextContent('this is a custom label');
-  //   expect(button).not.toHaveAttribute('class');
+    expect(heading).toHaveTextContent('this is a custom label');
 
-  // });
+  });
 
-  // test('Can add inline elements within heading label', () => {
+  test('Can change heading label', () => {
 
-  //   document.body.appendChild(createButton({ label: 'this is a custom label' }));
+    document.body.appendChild(createHeading({ label: 'this is a <strong>custom label</strong>' }));
 
-  //   const button = getByRole(document.body, 'button');
+    const heading = getByRole(document.body, 'heading');
 
-  //   expect(button).toBeInTheDocument();
-  //   expect(button).toHaveAttribute('type', 'button');
-  //   expect(button).toHaveTextContent('this is a custom label');
-  //   expect(button).not.toHaveAttribute('class');
+    expect(heading).toContainHTML('this is a <strong>custom label</strong>');
 
-  // });
+  });
 
 });
