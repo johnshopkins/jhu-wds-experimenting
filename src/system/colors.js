@@ -1,16 +1,15 @@
-import { colors, palettes } from '@johnshopkins/brand-colors';
+import { palettes, webcolors } from '@johnshopkins/brand-colors';
 
 const compiledPalettes = {
   primary: {},
   secondary: {},
-  tertiary: {},
+  accent: {},
   grayscale: {},
   expanded: {},
 };
 
 // sort brand colors
-const brandColors = colors.get();
-brandColors.forEach(color => {
+webcolors.forEach(color => {
   const name = color.name.replace(' ', '');
   compiledPalettes[color.type][name] = `#${color.hex}`;
 });
