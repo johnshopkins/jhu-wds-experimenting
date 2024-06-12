@@ -1,4 +1,5 @@
-/** @type { import('@storybook/html-webpack5').StorybookConfig } */
+import remarkGfm from 'remark-gfm';
+
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
@@ -7,7 +8,7 @@ const config = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/addon-links",
-    ({
+    {
       name: '@storybook/addon-styling-webpack',
       options: {
         rules: [
@@ -21,7 +22,17 @@ const config = {
           }
         ]
       }
-    })
+    },
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    }
   ],
   framework: {
     name: "@storybook/html-webpack5",
