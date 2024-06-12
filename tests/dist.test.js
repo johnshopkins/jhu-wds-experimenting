@@ -14,6 +14,11 @@ const jhuwds = require('../dist/main'); // cjs
 
 describe('Compiled library', () => {
 
+  afterEach(() => {
+    // clean up DOM elements
+    document.getElementsByTagName('html')[0].innerHTML = ''; 
+  });
+
   describe('CommonJS (CJS)', () => {
 
     test('Button class can be instantiated', async () => {
