@@ -1,7 +1,7 @@
 @use '../../shared/scss/utils/main' as *;
 
 button {
-  background-color: $gray;
+  background-color: $grayscale-40;
   border: 0;
   color: $white;
   cursor: pointer;
@@ -12,28 +12,28 @@ button {
 
   &.style-outline {
     background-color: $white;
-    border: 1px $gray solid;
-    color: $gray;
+    border: 1px $grayscale-40 solid;
+    color: $grayscale-40;
   }
 
   &.primary {
-    background-color: $primary;
+    background-color: $heritage-blue;
     color: $white;
 
     &.style-outline {
       background-color: $white;
-      border: 1px $primary solid;
-      color: $primary;
+      border: 1px $heritage-blue solid;
+      color: $heritage-blue;
     }
   }
 
   &.secondary {
-    background-color: $secondary;
+    background-color: $grayscale-60;
     color: $white;
 
     &.style-outline {
       background-color: $white;
-      border: 1px $secondary solid;
+      border: 1px $grayscale-60 solid;
       color: $black;
     }
   }
@@ -46,46 +46,46 @@ button {
   }
 
   &.success {
-    background-color: $success;
+    background-color: $warm-green-50;
     color: $white;
 
     &.style-outline {
       background-color: $white;
-      border: 1px $success solid;
-      color: $success;
+      border: 1px $warm-green-50 solid;
+      color: $warm-green-50;
     }
   }
 
   &.warning {
-    background-color: $warning;
+    background-color: $gold-20;
     color: $black;
 
     &.style-outline {
       background-color: $white;
-      border: 1px $warning solid;
-      color: $warning;
+      border: 1px $gold-20 solid;
+      color: $gold-20;
     }
   }
 
   &.danger {
-    background-color: $danger;
+    background-color: $red-50;
     color: $white;
 
     &.style-outline {
       background-color: $white;
-      border: 1px $danger solid;
-      color: $danger;
+      border: 1px $red-50 solid;
+      color: $red-50;
     }
   }
 
   &.disabled {
-    background-color: $secondary;
+    background-color: $grayscale-60;
     color: $white;
     opacity: 0.3;
 
     &.style-outline {
       background-color: $white;
-      border: 1px $secondary solid;
+      border: 1px $grayscale-60 solid;
       color: $black;
       opacity: 0.3;
     }
