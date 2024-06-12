@@ -20,6 +20,7 @@ export const html = (src) => {
       .replace(/<\/div>$/, '');
   }
 
+  // format remaining html
   return prettier.format(src, {
     parser: 'html',
     plugins: [HTMLParser],

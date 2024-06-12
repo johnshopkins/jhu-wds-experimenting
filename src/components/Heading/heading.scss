@@ -1,25 +1,5 @@
 @use '../../shared/scss/utils/main' as *;
 
-h1 {
-  color: red;
-}
-
-h2 {
-  color: $black;
-}
-
-h3 {
-  color: gray;
-}
-
-h4 {
-  color: pink;
-}
-
-h5 {
-  color: green;
-}
-
-h6 {
-  color: yellow;
+h1, h2, h3, h4, h5, h6 {
+  color: $heritage-blue;
 }

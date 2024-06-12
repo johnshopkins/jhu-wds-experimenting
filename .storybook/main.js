@@ -28,6 +28,8 @@ const config = {
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
+            // enables parsing of markdown tables (among other things)
+            // see: https://github.com/remarkjs/remark-gfm
             remarkPlugins: [remarkGfm],
           },
         },

@@ -27,7 +27,6 @@ const createButton = ({ label = 'Button', size, style, variant } = {}) => {
     element.classList.add(`size-${size}`);
   }
 
-  // enable JS
   new Button(element);
 
   return element;

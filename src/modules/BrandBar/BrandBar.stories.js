@@ -1,9 +1,6 @@
-// import { fn } from '@storybook/test';
 import { create } from './BrandBar';
 import { allModes } from "../../../.storybook/modes";
 
-
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 export default {
   title: 'Modules/Brand Bar',
   tags: ['autodocs'],

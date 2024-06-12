@@ -1,12 +1,20 @@
 @use '../../shared/scss/utils/main' as *;
 
 button {
+  background-color: $gray;
   border: 0;
+  color: $white;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
   font-size: 14px;
   padding: 11px 20px;
+
+  &.style-outline {
+    background-color: $white;
+    border: 1px $gray solid;
+    color: $gray;
+  }
 
   &.primary {
     background-color: $primary;

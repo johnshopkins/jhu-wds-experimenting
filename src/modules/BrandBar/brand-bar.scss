@@ -1,8 +1,8 @@
 @use '../../shared/scss/utils/main' as *;
 
 .brand-bar {
-  background-color: #002D72;
-  color: #fff;
+  background-color: $heritage-blue;
+  color: $white;
   padding: 10px;
   width: 100%;
 }
