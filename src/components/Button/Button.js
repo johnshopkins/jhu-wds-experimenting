@@ -9,7 +9,7 @@ class Button {
   }
 };
 
-const createButton = ({ label = 'Button', size, style, variant }) => {
+const createButton = ({ label = 'Button', size, style, variant } = {}) => {
 
   const element = document.createElement('button');
   element.type = 'button';
