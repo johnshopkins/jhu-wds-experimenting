@@ -9,7 +9,7 @@ class Button {
   }
 };
 
-const createButton = ({ label = 'Button', size, style, backgroundColor, variant }) => {
+const createButton = ({ label = 'Button', size, style, variant }) => {
 
   const element = document.createElement('button');
   element.type = 'button';
@@ -25,10 +25,6 @@ const createButton = ({ label = 'Button', size, style, backgroundColor, variant 
 
   if (size) {
     element.classList.add(`size-${size}`);
-  }
-
-  if (backgroundColor) {
-    element.style.backgroundColor = backgroundColor;
   }
 
   // enable JS
