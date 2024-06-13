@@ -38,6 +38,7 @@
     "stats": "webpack --json > stats.json",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build-storybook-docs": "storybook build --docs",
     "storybook-docs": "storybook dev --docs",
     "prepare": "jest",
     "create-colors-scss-util": "node ./scripts/create-colors-scss-util",

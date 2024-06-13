@@ -1,9 +1,9 @@
-name: "Deploy GitHub Pages"
+name: Deploy GitHub Pages
 
 on:
   push:
     branches:
-      - "storybook"
+      - storybook
 
 permissions:
   contents: read
@@ -18,3 +18,4 @@ jobs:
       uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
       with:
         path: 'storybook-static'
+        build_command: 'npm run build-storybook-docs'
