@@ -40,7 +40,8 @@
     "build-storybook": "storybook build",
     "storybook-docs": "storybook dev --docs",
     "prepare": "jest",
-    "create-colors-scss-util": "node ./scripts/create-colors-scss-util"
+    "create-colors-scss-util": "node ./scripts/create-colors-scss-util",
+    "chromatic": "npx chromatic --project-token=chpt_0e4f315d57c340e"
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",
