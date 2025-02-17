@@ -11,14 +11,6 @@ on:
     #   - 'src/**/*.js'
     #   - 'src/**/*.scss'
     #   - 'tests/**/*.js'
-  workflow_run:
-    workflows: [Deploy to GitHub Pages]
-    branches:
-      - main
-      - develop
-      - testing
-    types:
-      - completed
 
 jobs:
 

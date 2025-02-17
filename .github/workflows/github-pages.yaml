@@ -5,26 +5,24 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  push:
-    branches:
-      - main
-      - develop
-      - testing
+  # push:
+    # branches:
+    #   - main
+    #   - develop
+    #   - testing
     # paths:
     #   - 'src/**/*.mdx'
     #   - 'src/**/*.js'
     #   - 'src/**/*.scss'
 
-  # this causes the deployment workflow to run
-  # whenever the "Run tests" runs
-  # workflow_run:
-  #   workflows: [Run tests]
-  #   branches:
-  #     - main
-  #     - develop
-  #     - testing
-  #   types:
-  #     - completed
+  workflow_run:
+    workflows: [Run tests]
+    branches:
+      - main
+      - develop
+      - testing
+    types:
+      - completed
 
 permissions:
   contents: read
