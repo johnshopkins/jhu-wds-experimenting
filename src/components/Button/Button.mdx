@@ -1,0 +1,31 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+This is a custom documentation page.
+
+<Canvas of={ButtonStories.Base} />
+
+
+## Variations
+<Canvas of={ButtonStories.Variations} />
+
+## Subvariations
+
+### Outlined
+<Canvas of={ButtonStories.Outlined} />
+
+### Large
+<Canvas of={ButtonStories.Large} />
+
+### Large outlined
+<Canvas of={ButtonStories.LargeOutlined} />
+
+### Small
+<Canvas of={ButtonStories.Small} />
+
+### Small outlined
+<Canvas of={ButtonStories.SmallOutlined} />
