@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+concurrency:
+  group: 'github-pages'
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - testing
+    # paths:
+    #   - 'src/**/*.mdx'
+    #   - 'src/**/*.js'
+    #   - 'src/**/*.scss'
+  workflow_run:
+    workflows: [Run tests]
+    branches:
+      - main
+      - develop
+      - testing
+    types:
+      - completed
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    environment: 'github-pages'
+    steps:
+    - name: 'Deploy to Github pages'
+      id: build-publish
+      uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+      with:
+        path: 'storybook-static'
+        build_command: 'npm run build-storybook-docs'
