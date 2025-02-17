@@ -12,6 +12,7 @@ on:
     #   - 'src/**/*.js'
     #   - 'src/**/*.scss'
     #   - 'tests/**/*.js'
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
 
