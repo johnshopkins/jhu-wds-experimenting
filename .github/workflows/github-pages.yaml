@@ -35,9 +35,15 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     environment: 'github-pages'
     steps:
-    - name: 'Deploy to Github pages'
-      id: build-publish
-      uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
-      with:
-        path: 'storybook-static'
-        build_command: 'npm run build-storybook-docs'
+      - run: ${{ tojson(github.event) }}
+        shell: cat {0}
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+      - name: Build and publish
+        uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+        with:
+          checkout: false
+          path: 'storybook-static'
+          build_command: 'npm run build-storybook-docs'
