@@ -5,22 +5,11 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  # push:
-    # branches:
-    #   - main
-    #   - develop
-    #   - testing
-    # paths:
-    #   - 'src/**/*.mdx'
-    #   - 'src/**/*.js'
-    #   - 'src/**/*.scss'
-
   workflow_run:
     workflows: [Run tests]
     branches:
       - main
       - develop
-      - testing
     types:
       - completed
 
