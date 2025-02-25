@@ -5,11 +5,10 @@ on:
     tags:
       - '*'
   push:
-#     branches:
-#       - main
-#       - develop
     tags:
       - '*'
+    branches:
+      - main
 #   workflow_run:
 #     workflows: [Run tests]
 #     branches:
@@ -17,58 +16,52 @@ on:
 #       - develop
 #     types:
 #       - completed
-  release:
-    types: [published, unpublished, deleted]
 
-# Push from main branch
-# github.ref: refs/heads/main
-
-# Push new tag
+# New tag
 # github.event_name = "push"
 # github.event.created = true
 # github.event.deleted = false
 # github.event.ref: refs/tags/v0.1.0
 
 # Delete tag
-# No action fired
-
-# Published new release
-# github.event_name = "release"
-# github.event.action = "published"
-# github.event.tag_name = "v0.1.0"
-
-# Delete release
-# github.event_name = "release"
-# github.event.action = "deleted"
-# github.event.tag_name = "v0.1.0"
+# github.event_name = "delete"
+# github.event.ref = "v0.1.0"
+# github.event.reg_type = "tag"
 
 jobs:
   publish:
-#     if: github.repository == 'octo-org/octo-repo-prod'
+    # pushed new tag
+    if: github.event_name == 'push'
     name: Publish tag to npm
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
-      - run: ${{ tojson(github) }}
-        shell: cat {0}
-#       - name: Checkout code
-#         uses: actions/checkout@v4
-#       - name: Setup .npmrc file to publish to npm
-#       - name: Install node
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version-file: '.nvmrc'
-#           cache: 'npm'
-#       - name: Cache node_modules
-#         uses: actions/cache@v4
-#         with:
-#           path: node_modules
-#           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-#           restore-keys: |
-#             ${{ runner.os }}-npm-
-#       - name: Install dependencies
-#         run: npm ci
-#       - name: Run tests
-#         run: npm test
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      - name: Install dependencies
+        run: npm ci
+#       - name: Build library
+#         run: npm run build
+      - name: Publish
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 #   unpublish:
-#     if: github.repository == 'octo-org/octo-repo-prod'
+#     # deleted tag
+#     if: ${{ github.event_name == 'delete' }}
 #     name: Unpublish package tag
