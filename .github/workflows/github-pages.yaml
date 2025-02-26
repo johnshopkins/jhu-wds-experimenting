@@ -1,17 +1,14 @@
 name: Deploy to GitHub Pages
 
 concurrency:
-  group: ${{ github.workflow }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 on:
-  workflow_run:
-    workflows: [Run tests]
+  push:
     branches:
       - main
       - develop
-    types:
-      - completed
 
 permissions:
   contents: read
@@ -19,15 +16,16 @@ permissions:
   id-token: write
 
 jobs:
+  test:
+    name: Run tests
+    uses: johnshopkins/jhu-wds-experimenting/.github/workflows/tests.yaml@main
+    
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     environment: 'github-pages'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.workflow_run.head_branch }}
       - name: Build and publish
         uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
         with:
