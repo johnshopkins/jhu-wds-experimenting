@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
 concurrency:
-  group: 'github-pages'
+  group: ${{ github.workflow }}
   cancel-in-progress: true
 
 on:
@@ -24,8 +24,6 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     environment: 'github-pages'
     steps:
-      - run: ${{ tojson(github.event) }}
-        shell: cat {0}
       - name: Checkout code
         uses: actions/checkout@v4
         with:
