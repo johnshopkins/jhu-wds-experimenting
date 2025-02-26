@@ -20,7 +20,7 @@ const createButton = ({ label = 'Button', size, style, variant } = {}) => {
   }
 
   if (style) {
-    element.classList.add(`styles-${style}`);
+    element.classList.add(`style-${style}`);
   }
 
   if (size) {
