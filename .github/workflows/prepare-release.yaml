@@ -3,30 +3,36 @@ name: Prepare release
 on:
   push:
     branches:
-      - 'release-**'
-      - 'patch-**'
+      - '*'
+#       - 'release-**'
+#       - 'patch-**'
 
 jobs:
   branch-checks:
     runs-on: ubuntu-latest
     steps:
-      - run: ${{ tojson(github) }}
-        shell: cat {0}
-#       - id: get-branch
-#         run: |
-#           BRANCH=($(echo ${{ github.ref }} | sed -E 's/refs\/heads\///'))
-#           echo "branch=$BRANCH" >> $GITHUB_ENV
-#     outputs:
-#       branch: ${{ env.branch }}
-#       is-latest-branch: ${{ env.branch == 'main' }}
-#       is-next-branch: ${{ env.branch == 'next' }}
-#       is-release-branch: ${{ startsWith(env.branch, 'release-') }}
-#       is-actionable-branch: ${{ env.branch == 'main' || env.branch == 'next' || startsWith(env.branch, 'release-') }}
+      - id: get-branch
+        run: |
+          BRANCH=($(echo ${{ github.ref }} | sed -E 's/refs\/heads\///'))
+          echo "branch=$BRANCH" >> $GITHUB_ENV
+    outputs:
+      branch: ${{ env.branch }}
+      is-release-branch: ${{ startsWith(env.branch, 'release-') }}
+      is-patch-branch: ${{ startsWith(env.branch, 'patch-') }}
 
-#   open-pull-request:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: gh pr create
-#         env:
-#           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#           ISSUE: ${{ github.event.issue.html_url }}
+  handle-release:
+    runs-on: ubuntu-latest
+    needs: branch-checks
+    steps:
+      - name: Any Name Bash Test Step
+        shell: bash
+        run: |
+          echo "BRANCH: $BRANCH"
+          echo "IS_PATCH: $IS_PATCH"
+          echo "IS_RELEASE: $IS_RELEASE"
+        env:
+          BRANCH: ${{ needs.branch-checks.outputs.branch }}
+          IS_PATCH: ${{ needs.branch-checks.outputs.is-patch-branch }}
+          IS_RELEASE: ${{ needs.branch-checks.outputs.is-release-branch }}
+
+#   handle-patch-release
