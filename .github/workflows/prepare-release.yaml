@@ -1,0 +1,91 @@
+name: Prepare release
+
+# release, prerelease (alpha, beta), patch release
+# should this be automated or dispatched in github actions?
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: "Release type"
+        required: true
+        default: "prerelease"
+        type: choice
+        options:
+          - prerelease
+          - prepatch
+          - preminor
+          - premajor
+          - patch
+          - minor
+          - major
+      pre-id:
+        description: For prerelease versions, what prerelease identifier to use, eg. 'alpha', 'beta', 'rc'
+        required: false
+        type: string
+#   push:
+#     branches:
+#       - '*'
+#       - 'release-**'
+#       - 'patch-**'
+
+jobs:
+  branch-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - id: get-branch
+        run: |
+          BRANCH=($(echo ${{ github.ref }} | sed -E 's/refs\/heads\///'))
+          echo "branch=$BRANCH" >> $GITHUB_ENV
+    outputs:
+      branch: ${{ env.branch }}
+      is-release-branch: ${{ startsWith(env.branch, 'release-') }}
+      is-patch-branch: ${{ startsWith(env.branch, 'patch-') }}
+#       is-alpha-release:
+#       is-beta-release:
+#       is-major-release:
+
+  handle-release:
+    runs-on: ubuntu-latest
+    needs: branch-checks
+    steps:
+      - name: Any Name Bash Test Step
+        shell: bash
+        run: |
+          echo "BRANCH: $BRANCH"
+          echo "IS_PATCH: $IS_PATCH"
+          echo "IS_RELEASE: $IS_RELEASE"
+        env:
+          BRANCH: ${{ needs.branch-checks.outputs.branch }}
+          IS_PATCH: ${{ needs.branch-checks.outputs.is-patch-branch }}
+          IS_RELEASE: ${{ needs.branch-checks.outputs.is-release-branch }}
+
+#   handle-patch-release
+
+  handle-release:
+    needs: branch-checks
+    if: ${{ needs.branch-checks.outputs.is-latest-branch == 'true' }}
+    runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - run: curl -X POST "https://api.netlify.com/build_hooks/${{ secrets.FRONTPAGE_HOOK }}"
+
+
+#     - name: Any Name Bash Test Step
+#         shell: bash
+#         run: |
+#           echo "GH_REPO: $GH_REPO"
+#           echo "GH_REPO_O: $GH_REPO_O"
+#           echo "GH_T: $GH_T"
+#         env:
+#           GH_REPO: ${{ github.repository }}
+#           GH_REPO_O: ${{ github.repository_owner }}
+#           GH_T: ${{ secrets.GITHUB_TOKEN }}
+
+#   open-pull-request:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: gh pr create
+#         env:
+#           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           ISSUE: ${{ github.event.issue.html_url }}
