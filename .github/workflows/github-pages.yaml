@@ -33,4 +33,5 @@ jobs:
         with:
           checkout: false
           path: 'storybook-static'
-          build_command: 'npm run build-storybook-docs'
+          install_command: yarn install
+          build_command: 'yarn run build-storybook-docs'
