@@ -42,7 +42,6 @@
     "build-drop-in": "vite build --config vite.config.js",
     "eslint": "npx eslint '{.storybook,scripts,src,tests}/**/*.{js,jsx}'",
     "stylelint": "npx stylelint 'src/**/*.scss'",
-    "prepare": "vitest run",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build && node scripts/post-build.js",
