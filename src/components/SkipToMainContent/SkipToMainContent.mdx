@@ -1,0 +1,15 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as SkipToMainContentStories from './SkipToMainContent.stories';
+
+<Meta of={SkipToMainContentStories} />
+
+# Skip to Main Content
+
+The skip to main content link appears only to screen readers and users that are navigating using the keyboard. The link provides a shortcut for users to skip the header area and go directly to the main content. Without this feature, these users would have to repeatedly navigate through familiar header content from previous webpages.
+
+Below is a preview of what the link looks like when focused in the browser.
+
+<Canvas of={SkipToMainContentStories.Base} />
+
+## Guidance
+* Place the Skip to main content link directly after the opening `<body>` tag.

@@ -1,0 +1,10 @@
+@use '../../shared/scss/utils/main' as *;
+
+// styles used only in the storybook
+
+#story--components-skip-to-main-content--base-inner .jhu-skip-to-main {
+  // focused styles
+  height: auto;
+  min-height: 2rem;
+  padding: var(--jhu-spacing-1);
+}
