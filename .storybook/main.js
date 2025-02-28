@@ -1,45 +1,28 @@
-import remarkGfm from 'remark-gfm';
-
 const config = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  staticDirs: ['../static'],
+
   addons: [
-    "@chromatic-com/storybook",
-    "@storybook/addon-a11y",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/addon-links",
-    {
-      name: '@storybook/addon-styling-webpack',
-      options: {
-        rules: [
-          {
-            test: /\.(css|sass|scss)$/,
-            use: [
-              'style-loader',
-              'css-loader',
-              'sass-loader',
-            ],
-          }
-        ]
-      }
-    },
-    {
-      name: '@storybook/addon-docs',
-      options: {
-        mdxPluginOptions: {
-          mdxCompileOptions: {
-            // enables parsing of markdown tables (among other things)
-            // see: https://github.com/remarkjs/remark-gfm
-            remarkPlugins: [remarkGfm],
-          },
-        },
-      },
-    }
+    '@chromatic-com/storybook',
+    '@storybook/addon-docs',
+    '@storybook/addon-essentials',
+    '@storybook/addon-links',
+    '@storybook/addon-viewport',
+    '@whitespace/storybook-addon-html',
+    '@storybook/experimental-addon-test',
+    '@storybook/addon-a11y'
   ],
+
+  core: {
+    builder: '@storybook/builder-vite',
+  },
+
   framework: {
-    name: "@storybook/html-webpack5",
+    name: '@storybook/react-vite',
     options: {},
   },
+
+  docs: {}
 };
 
 export default config;

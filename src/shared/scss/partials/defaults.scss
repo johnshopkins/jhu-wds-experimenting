@@ -1,0 +1,14 @@
+@use '../../../shared/scss/utils/main' as *;
+@use '../../../shared/scss/variables/main' as *;
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+.visuallyhidden {
+  @include jhu-visually-hidden();
+
+  &.focusable {
+    @include jhu-visually-hidden(focusable)
+  }
+}

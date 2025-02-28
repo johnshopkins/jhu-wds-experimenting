@@ -1,0 +1,11 @@
+@use 'spacing' as *;
+
+// Table SCSS Variables
+$table_cell_border_width: var(--jhu-stroke-hairline);
+$table_outline_width: var(--jhu-stroke-light);
+$table_cell_border_style: solid;
+$table_outline_style: $table_cell_border_style;
+$table_cell_border_color: var(--jhu-blue-10);
+$table_outline_color: var(--jhu-brand-heritage-blue);
+$table_cell_border: $table_cell_border_width $table_cell_border_style $table_cell_border_color;
+$table_outline: $table_outline_width $table_outline_style $table_outline_color;

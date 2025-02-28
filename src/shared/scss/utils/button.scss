@@ -1,0 +1,304 @@
+@use '../variables/main' as *;
+
+@mixin jhu-button-size($size: medium) {
+
+  @if ($size == xxx-small) {
+    --jhu-button-border-width: var(--jhu-stroke-hairline);
+    --jhu-button-padding-horizontal: var(--jhu-spacing-1025);
+    --jhu-button-padding-vertical: var(--jhu-spacing-075);
+    @include jhu-font-size(3xs, 1.1, 0.0875em);
+    font-weight: 700;
+  }
+
+  @else if ($size == xx-small) {
+    --jhu-button-border-width: var(--jhu-stroke-thin);
+    --jhu-button-padding-horizontal: var(--jhu-spacing-105);
+    --jhu-button-padding-vertical: var(--jhu-spacing-075);
+    @include jhu-font-size(2xs, 1.1, 0.075em);
+    font-weight: 700;
+  }
+
+  @else if ($size == x-small) {
+    --jhu-button-border-width: var(--jhu-stroke-thin);
+    --jhu-button-padding-horizontal: var(--jhu-spacing-2);
+    --jhu-button-padding-vertical: var(--jhu-spacing-1);
+    @include jhu-font-size(xs, 1.1, 0.0625em);
+    font-weight: 700;
+  }
+
+  @else if ($size == small) {
+    --jhu-button-border-width: var(--jhu-stroke-light);
+    --jhu-button-padding-horizontal: var(--jhu-spacing-3);
+    --jhu-button-padding-vertical: var(--jhu-spacing-1025);
+    @include jhu-font-size(sm, 1.1, 0.05em);
+    font-weight: 700;
+  }
+
+  @else if ($size == medium) {
+    --jhu-button-border-width: var(--jhu-stroke-medium);
+    --jhu-button-padding-horizontal: var(--jhu-spacing-3);
+    --jhu-button-padding-vertical: var(--jhu-spacing-105);
+    @include jhu-font-size(md, 1.1, 0.05em);
+    font-weight: 700;
+  }
+
+  @else if ($size == large) {
+    --jhu-button-border-width: var(--jhu-stroke-semi-bold);
+    --jhu-button-padding-horizontal: var(--jhu-spacing-4);
+    --jhu-button-padding-vertical: var(--jhu-spacing-1075);
+    @include jhu-font-size(lg, 1.1, 0.05em);
+    font-weight: 900;
+    width: 100%;
+  }
+
+  @else if ($size == x-large) {
+    --jhu-button-border-width: var(--jhu-stroke-semi-bold);
+    --jhu-button-padding-horizontal: var(--jhu-spacing-5);
+    --jhu-button-padding-vertical: var(--jhu-spacing-2);
+    @include jhu-font-size(xl, 1.1, 0.05em);
+    font-weight: 900;
+    width: 100%;
+  }
+
+  @else if ($size == xx-large) {
+    --jhu-button-border-width: var(--jhu-stroke-semi-bold);
+    --jhu-button-padding-horizontal: var(--jhu-spacing-6);
+    --jhu-button-padding-vertical: var(--jhu-spacing-2);
+    @include jhu-font-size(2xl, 1.1, 0.05em);
+    font-weight: 900;
+    width: 100%;
+  }
+
+  @else if ($size == xxx-large) {
+    --jhu-button-border-width: var(--jhu-stroke-semi-bold);
+    --jhu-button-padding-horizontal: var(--jhu-spacing-8);
+    --jhu-button-padding-vertical: var(--jhu-spacing-2);
+    @include jhu-font-size(3xl, 1.1, 0.05em);
+    font-weight: 900;
+    width: 100%;
+  }
+
+  @else {
+    --jhu-button-border-width: var(--jhu-stroke-light);
+    --jhu-button-padding-horizontal: var(--jhu-spacing-1025);
+    --jhu-button-padding-vertical: var(--jhu-spacing-075);
+    @include jhu-font-size(md);
+    font-weight: 700;
+    padding: var(--jhu-spacing-105) var(--jhu-spacing-3);
+  }
+}
+
+@mixin jhu-button-corners($corners: square) {
+  @if ($corners == square) {
+    border-radius: 0;
+  } @else if ($corners == rounded) {
+    border-radius: 0.1875em;
+  } @else if ($corners == round) {
+    border-radius: 10em;
+  } @else {
+    border-radius: $corners;
+  }
+}
+
+@mixin jhu-button-color(
+  $base-color: var(--jhu-button-base-color),
+  $contrast-color: var(--jhu-button-contrast-color),
+  $accent-color: var(--jhu-button-accent-color),
+  $base-color-hover: var(--jhu-button-base-color-hover),
+  $contrast-color-hover: var(--jhu-button-contrast-color-hover),
+  $accent-color-hover: var(--jhu-button-accent-color-hover),
+) {
+
+  @if ($base-color) { --jhu-button-base-color: #{$base-color}; }
+  @if ($contrast-color) { --jhu-button-contrast-color: #{$contrast-color}; }
+  @if ($accent-color) { --jhu-button-accent-color: #{$accent-color}; }
+  @if ($base-color-hover) { --jhu-button-base-color-hover: #{$base-color-hover}; }
+  @if ($contrast-color-hover) { --jhu-button-contrast-color-hover: #{$contrast-color-hover}; }
+  @if ($accent-color-hover) { --jhu-button-accent-color-hover: #{$accent-color-hover}; }
+
+  // --button-background-color: #{$background-color};
+  // --button-text-color: #{$text-color};
+  // --button-hover-background-color: #{$hover-background-color};
+  // --button-hover-text-color: #{$hover-text-color};
+
+  // @if ($style == outline) {
+  //   background-color: transparent;
+  //   @include box_shadow(-$light $light 0 var(--button-background-color));
+
+  //   @if ($text-color != null) {
+  //     border-color: var(--button-text-color);
+  //     color: var(--button-text-color);
+  //   } @else {
+  //     border-color: var(--button-background-color);
+  //     color: var(--button-background-color);
+  //   }
+
+  //   &:focus,
+  //   &:hover {
+
+  //     @if ($hover-background-color != null) {
+  //       background-color: var(--button-hover-background-color);
+  //       border-color: var(--button-hover-background-color);
+  //     } @else if ($text-color != null){
+  //       background-color: var(--button-text-color);
+  //     } @else {
+  //       background-color: var(--button-background-color);
+  //     }
+
+  //     @if ($hover-text-color != null) {
+  //       color: var(--button-hover-text-color);
+  //     } @else if ($hover-background-color != null) {
+  //       @include text-contrast($hover-background-color);
+  //       // @if (lightness($hover-background-color) > 50) {
+  //       //   color: $double_black;
+  //       // } @else {
+  //       //   color: $white;
+  //       // }
+  //     } @else if ($text-color != null) {
+  //       @include text-contrast($text-color);
+  //       // @if (lightness($text-color) > 50) {
+  //       //   color: $double_black;
+  //       // } @else {
+  //       //   color: $white;
+  //       // }
+  //     } @else {
+  //       @include text-contrast($background-color);
+  //       // @if (lightness($background-color) > 50) {
+  //       //   color: $double_black;
+  //       // } @else {
+  //       //   color: $white;
+  //       // }
+  //     }
+  //   }
+  // } @else {
+  //   background-color: var(--button-background-color);
+  //   border-color: var(--button-background-color);
+  //   // border-width: 0;
+
+  //   @if ($text-color != null) {
+  //     color: var(--button-text-color);
+  //   } @else {
+  //     @include text-contrast($background-color);
+  //     // @if (lightness($background-color) > 50) {
+  //     //   color: $double_black;
+  //     // } @else {
+  //     //   color: $white;
+  //     // }
+  //   }
+
+  //   &:focus,
+  //   &:hover {
+
+  //     @if ($hover-background-color != null) {
+  //       background-color: var(--button-hover-background-color);
+  //       border-color: var(--button-hover-background-color);
+  //     } @else if ($text-color != null) {
+  //       background-color: var(--button-text-color);
+  //       border-color: var(--button-text-color);
+  //     } @else {
+  //       // The following is pulled from the guts of the text-contrast mixin
+  //       // Text-contrast mixin needs to be made more flexible but no time to do that now
+  //       $color-brightness: round((red($background-color) * 299) + (green($background-color) * 587) + (blue($background-color) * 114) / 1000);
+  //       $light-color: round((red($white) * 299) + (green($white) * 587) + (blue($white) * 114) / 1000);
+  //       @if abs($color-brightness) < ($light-color / 2){
+  //         background-color: $white;
+  //         border-color: $white;
+  //       } @else {
+  //         background-color: $double_black;
+  //         border-color: $double_black;
+  //       }
+  //       // @if (lightness($background-color) > 50) {
+  //       //   background-color: $double_black;
+  //       //   border-color: $double_black;
+  //       // } @else {
+  //       //   background-color: $white;
+  //       //   border-color: $white;
+  //       // }
+  //     }
+
+  //     @if ($hover-text-color != null) {
+  //       color: var(--button-hover-text-color);
+  //     } @else if ($hover-background-color != null) {
+  //       @include text-contrast(var(--button-hover-background-color));
+  //       // @if (lightness($hover-background-color) > 50) {
+  //       //   color: $double_black;
+  //       // } @else {
+  //       //   color: $white;
+  //       // }
+  //     } @else {
+  //       color: var(--button-background-color);
+  //     }
+  //   }
+  // }
+}
+
+@mixin jhu-button-style($style: solid) {
+
+  @if ($style == outline) {
+    --jhu-button-base-color-hover: var(--jhu-blue-50);
+    --jhu-button-background-color: transparent;
+    --jhu-button-text-color: var(--jhu-button-base-color);
+    box-shadow: calc(var(--jhu-button-shadow-size) * -1) var(--jhu-button-shadow-size) 0 var(--jhu-button-accent-color);
+
+  } @else {
+    box-shadow: none;
+  }
+
+  @if ($style == solid) {
+    border: none;
+    padding: calc(var(--jhu-button-padding-vertical) + var(--jhu-button-border-width)) calc(var(--jhu-button-padding-horizontal) + var(--jhu-button-border-width));
+  } @else {
+    border: solid var(--jhu-button-base-color) var(--jhu-button-border-width);
+    padding: var(--jhu-button-padding-vertical) var(--jhu-button-padding-horizontal);
+  }
+}
+
+
+
+// Order of properties follows this rule
+// https://x.com/MattAndersonNYT/status/772002757222002688
+@mixin jhu-button(
+  $size: medium, 
+  $style: solid,
+  $corners: square, 
+  $base-color: null, 
+  $contrast-color: null, 
+  $accent-color: null, 
+  $base-color-hover: null,
+  $contrast-color-hover: null, 
+  $accent-color-hover: null
+) {
+  --jhu-button-background-color: var(--jhu-button-base-color);
+  --jhu-button-text-color: var(--jhu-button-contrast-color);
+  --jhu-button-background-color-hover: var(--jhu-button-base-color-hover);
+  --jhu-button-text-color-hover: var(--jhu-button-contrast-color-hover);
+  --jhu-button-shadow-size: 0.125em;
+
+  @include jhu-button-color($base-color, $contrast-color, $accent-color, $base-color-hover, $contrast-color-hover, $accent-color-hover);
+  @include jhu-button-corners($corners);
+  @include jhu-button-size($size);
+  @include jhu-button-style($style);
+  @include jhu-font-family(sans);
+  @include jhu-font-size(md, 1.1, var(--jhu-spacing-025));
+
+  align-items: center;
+  background-color: var(--jhu-button-background-color);
+  color: var(--jhu-button-text-color);
+  cursor: pointer;
+  display: inline-flex;
+  gap: var(--jhu-spacing-05);
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:where(:not([disabled])) {
+
+    &:focus,
+    &:hover {
+      background-color: var(--jhu-button-background-color-hover);
+      border-color: var(--jhu-button-base-color-hover);
+      color: var(--jhu-button-text-color-hover);
+    }  
+  }
+}

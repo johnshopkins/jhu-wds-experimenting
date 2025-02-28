@@ -1,0 +1,8 @@
+// shared
+@forward 'shared/scss/variables/main';
+
+// partials
+@forward 'shared/scss/partials/defaults';
+
+// components
+@forward 'components/SkipToMainContent/skip-to-main-content';

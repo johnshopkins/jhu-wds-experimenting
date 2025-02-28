@@ -1,32 +1,18 @@
 name: Publish to npm
 
 on:
-  delete:
-    tags:
-      - '*'
-  push:
-    tags:
-      - '*'
+#   delete:
+#     tags:
+#       - '*'
+#   push:
+#     tags:
+#       - '*'
+  workflow_run:
+    workflows: [Run tests]
     branches:
       - main
-#   workflow_run:
-#     workflows: [Run tests]
-#     branches:
-#       - main
-#       - develop
-#     types:
-#       - completed
-
-# New tag
-# github.event_name = "push"
-# github.event.created = true
-# github.event.deleted = false
-# github.event.ref: refs/tags/v0.1.0
-
-# Delete tag
-# github.event_name = "delete"
-# github.event.ref = "v0.1.0"
-# github.event.reg_type = "tag"
+    types:
+      - completed
 
 jobs:
   publish:
@@ -46,22 +32,35 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
-      - name: Install dependencies
-        run: npm ci
+#       - name: Cache node_modules
+#         uses: actions/cache@v4
+#         with:
+#           path: node_modules
+#           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+#           restore-keys: |
+#             ${{ runner.os }}-npm-
+#       - name: Install dependencies
+#         run: npm ci
 #       - name: Build library
 #         run: npm run build
       - name: Publish
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-#   unpublish:
-#     # deleted tag
-#     if: ${{ github.event_name == 'delete' }}
-#     name: Unpublish package tag
+  unpublish:
+    # deleted tag
+    if: ${{ github.event_name == 'delete' }}
+    name: Unpublish package tag
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Unpublish tag
+        run: npm unpublish  @${{ github.repository }}@${{ github.event.ref }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

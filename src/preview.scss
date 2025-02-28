@@ -1,0 +1,30 @@
+// for .storybook/preview
+
+.story-container {
+  // used in src/shared/js/components/Wrapper.jsx to control how elements are displayed
+  &.flex {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+}
+
+.docs-story {
+  // enables modals to pop out of the story container
+  // see: https://github.com/storybookjs/storybook/issues/16774#issuecomment-1648367974
+  div[scale] {
+    transform: none !important;
+  }
+}
+
+#storybook-docs {
+  .jhu-inpage-nav {
+    &.style-horizontal {
+      li {
+        // storybook adds margin to list items; let's remove it on inpage nav
+        margin-top: 0 !important;
+      }
+    }
+  }
+}

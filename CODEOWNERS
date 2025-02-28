@@ -1,0 +1,7 @@
+*          @johnshopkins/coders
+.github    @jenwachter
+.storybook @jenwachter
+*.js       @jenwachter
+*.jsx      @jenwachter
+*.cjs      @jenwachter
+*.scss     @ericconrad

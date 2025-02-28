@@ -9,6 +9,7 @@ on:
     branches:
       - main
       - develop
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -19,14 +20,12 @@ jobs:
   test:
     name: Run tests
     uses: johnshopkins/jhu-wds-experimenting/.github/workflows/tests.yaml@main
-    
+
   deploy:
     runs-on: ubuntu-latest
     environment: 'github-pages'
     needs: test
     steps:
-      - run: ${{ tojson(github) }}
-        shell: cat {0}
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build and publish

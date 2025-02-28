@@ -1,0 +1,10 @@
+@use '../../scss/utils/main' as *;
+
+.click-to-copy {
+  display: block;
+
+  svg {
+    height: 0.9em;
+    margin-left: 0.25em;
+  }
+}

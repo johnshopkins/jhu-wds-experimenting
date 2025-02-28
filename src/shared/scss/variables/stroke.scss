@@ -1,0 +1,25 @@
+@use 'spacing' as *;
+
+// Stroke weight SCSS variables
+$jhu-stroke-hairline: var(--jhu-spacing-1px);
+$jhu-stroke-thin: var(--jhu-spacing-025);
+$jhu-stroke-light: var(--jhu-spacing-0375);
+$jhu-stroke-medium: var(--jhu-spacing-05);
+$jhu-stroke-semi-bold: var(--jhu-spacing-075);
+$jhu-stroke-bold: var(--jhu-spacing-1);
+$jhu-stroke-extra-bold: var(--jhu-spacing-1025);
+$jhu-stroke-heavy: var(--jhu-spacing-105);
+$jhu-stroke-ultra: var(--jhu-spacing-2);
+
+// Stroke weight CSS variables
+:root {
+  --jhu-stroke-hairline: #{$jhu-stroke-hairline};
+  --jhu-stroke-thin: #{$jhu-stroke-thin};
+  --jhu-stroke-light: #{$jhu-stroke-light};
+  --jhu-stroke-medium: #{$jhu-stroke-medium};
+  --jhu-stroke-semi-bold: #{$jhu-stroke-semi-bold};
+  --jhu-stroke-bold: #{$jhu-stroke-bold};
+  --jhu-stroke-extra-bold: #{$jhu-stroke-extra-bold};
+  --jhu-stroke-heavy: #{$jhu-stroke-heavy};
+  --jhu-stroke-ultra: #{$jhu-stroke-ultra};
+}
