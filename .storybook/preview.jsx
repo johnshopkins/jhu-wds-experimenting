@@ -104,28 +104,7 @@ export default {
     options: {
       storySort: {
         method: 'alphabetical',
-        order: [
-          'Getting Started', 
-          [
-            'Introduction',
-            'Quick Start',
-            'Bundlers',
-            [
-              'Bundler Setup',
-              'Bundling with Webpack',
-              'Bundling with Vite',
-            ],
-            '*'],
-          'Foundation',
-          [
-            'Design Tokens',
-            '*'
-          ],
-          'Components',
-          'Modules',
-          'Appendix',
-        ],
-      },
+      }
     },
     viewport: {
       viewports: viewports,
