@@ -7,6 +7,10 @@ runs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Enable Corepack
+      shell: bash
+      run: corepack enable
+
     - name: Install node
       uses: actions/setup-node@v4
       with:
