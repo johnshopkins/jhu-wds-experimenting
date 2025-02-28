@@ -44,7 +44,7 @@
     "stylelint": "npx stylelint 'src/**/*.scss'",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build && node scripts/post-build.js",
+    "build-storybook": "storybook build && node scripts/post-build.cjs",
     "storybook-docs": "storybook dev --docs",
     "build-storybook-docs": "storybook build --docs && node scripts/post-build.cjs",
     "create-colors-scss": "node ./scripts/create-colors-scss",

@@ -28,10 +28,27 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Build and publish
-        uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
-        with:
-          checkout: false
+
+      - name: Setup node
+        uses: ./.github/actions/setup-node
+
+      - name: Build storybook
+        run: yarn run build-storybook-docs
+
+      - name: Upload storybook
+        uses: actions/upload-pages-artifact@v3
+        with: 
           path: 'storybook-static'
-          install_command: yarn install
-          build_command: 'yarn run build-storybook-docs'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ github.token }}
+
+      # - name: Build and publish
+      #   uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+      #   with:
+      #     checkout: false
+      #     path: 'storybook-static'
+      #     install_command: yarn install
+      #     build_command: 'yarn run build-storybook-docs'
